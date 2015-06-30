@@ -1,3 +1,5 @@
-/chat_django/chat_django/__pycache__/
-/chat_django/chat/__pycache__/
-/chat_django/chat/migrations/__pycache__
+/chat_django/chat_django/__pycache__/*
+/chat_django/chat/__pycache__/*
+/chat_django/chat/migrations/__pycache__/*
+chat_django/chat_django/__pycache__/urls.cpython-34.pyc
+chat_django/chat_django/__pycache__/settings.cpython-34.pyc
