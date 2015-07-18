@@ -6,6 +6,10 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib.auth import logout
 from django.core.urlresolvers import reverse
+from django.shortcuts import redirect
+
+from chat.forms import ConnexionForm
+
 # Create your views here.
 
 
@@ -36,3 +40,4 @@ def connexion(request):
 def deconnexion(request):
     logout(request)
     return redirect(reverse(connexion))
+

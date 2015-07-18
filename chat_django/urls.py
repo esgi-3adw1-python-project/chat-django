@@ -19,6 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'chat.views.home'),
-    url(r'^connexion$', 'auth.views.connexion', name='connexion'),
-    url(r'^deconnexion$', 'auth.views.deconnexion', name='deconnexion'),
+    url(r'^connexion$', 'chat.views.connexion'),
+    url(r'^deconnexion$', 'chat.views.deconnexion'),
 ]
