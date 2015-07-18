@@ -6,7 +6,10 @@
     <link type="text/css" rel="stylesheet" href="/static/chat/css/style.css">
 </head>
 <body>
-    <h1>Hello World {{ user.username }} !</h1>
+    <div id="top">
+        <h1>Hello World {{ user.username }} !</h1>
+        <h2><button id="logout" onclick="location.href='deconnexion'">Déconnexion</button></h2>
+    </div>
     <div id="chat">
         <div id="messages">
             {% for message in last_messages %}

@@ -36,8 +36,7 @@ def connexion(request):
             user = authenticate(username=username, password=password)
             if user is not None:  # Si l'objet renvoyé n'est pas None
                 login(request, user)  # nous connectons l'utilisateur
-                template = loader.get_template('index.html')
-                return HttpResponse(template.render())
+                return redirect(reverse(home))
             else:  # sinon une erreur sera affichée
                 error = True
                 return render(request, 'connexion.html', locals())
@@ -65,8 +64,7 @@ def inscription(request):
                 user = authenticate(username=username, password=password)
                 login(request, user)  # nous connectons l'utilisateur
 
-                template = loader.get_template('index.html')
-                return HttpResponse(template.render())
+                return redirect(reverse(home))
             else:  # sinon une erreur sera affichée
                 error = True
                 return render(request, 'inscription.html', locals())
