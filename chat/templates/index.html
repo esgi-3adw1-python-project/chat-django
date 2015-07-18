@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Django Chat App</title>
+    <link type="text/css" rel="stylesheet" href="/static/chat/css/style.css">
 </head>
 <body>
-    <h1>Hello World !</h1>
+    <h1>Hello World {{ user.username }} !</h1>
+    <div id="chat">
+        <div id="messages">
+            {% for message in last_messages %}
+                <div id="post">
+                    <p id="{{ message.id }}" class="pseudo">{{ message.user }}</p>
+                    <p class="content">{{ message.content }}</p>
+                    <p class="date">{{ message.date }}.</p>
+                </div>
+            {% empty %}
+                <h1>Aucun Message</h1>
+            {% endfor %}
+        </div>
+        <div id="form">
+           <form method="post" action="ajax.php">
+            <input type="text" name="pseudo" placeholder="Pseudo" id="pseudo">
+            <textarea placeholder="Mon Message" name="message" id="message"></textarea>
+            <input id="envoi" type="submit" name="submit" value="Envoyer">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

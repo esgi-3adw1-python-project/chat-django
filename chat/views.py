@@ -12,14 +12,17 @@ from django.shortcuts import redirect
 from chat.forms import ConnexionForm
 from chat.forms import InscriptionForm
 
+from chat.models import Message
+
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
 @login_required(redirect_field_name=None)
 def home(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    request.user
+    last_messages = Message.objects.all()
+    return render(request, 'index.html', locals())
 
 
 def connexion(request):
@@ -61,6 +64,7 @@ def inscription(request):
             if user:  # Si l'objet renvoyé n'est pas None
                 user = authenticate(username=username, password=password)
                 login(request, user)  # nous connectons l'utilisateur
+
                 template = loader.get_template('index.html')
                 return HttpResponse(template.render())
             else:  # sinon une erreur sera affichée

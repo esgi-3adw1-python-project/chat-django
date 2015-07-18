@@ -8,11 +8,12 @@
     <h1>Se connecter</h1>
 
     {% if error %}
-    <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+        <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
     {% endif %}
 
     {% if user.is_authenticated %}
-    Vous êtes connecté, {{ user.username }} !
+        <p>Vous êtes connecté, <strong>{{ user.username }}</strong> !</p>
+        <a href="/">Retournez au chat</a>
     {% else %}
 
     <form method="post">
@@ -20,6 +21,8 @@
         {{ form.as_p }}
         <input type="submit" value="Se connecter" />
     </form>
+    <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a></p>
+
     {% endif %}
 </body>
 </html>
