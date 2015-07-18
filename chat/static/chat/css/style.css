@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "replay";
+    src: url('../fonts/replay.ttf');
+}
+
+@font-face {
+    font-family: "baumans";
+    src: url('../fonts/Baumans-Regular.ttf');
+}
+
+body {
+    background: url("../img/abstract-backgrounds-colors-digital-art-gradient.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+}
+
+#top {
+    text-align: center;
+}
+
+#logout {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#chat {
+    position: relative;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#messages {
+    background-image: url("../img/escheresque.png");
+    height: 500px;
+    color: white;
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+#pseudo {
+    padding-left: 10px;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+}
+
+textarea {
+    padding-left: 10px;
+    position: relative;
+    top: 10px;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+}
+
+#envoi {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 33%;
+    margin-right: 33%;
+    width: 33%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#post {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 10, 255, 0.6);
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;
+}
+
+.pseudo{
+    font-family: replay;
+    letter-spacing: 2px;
+}
+
+.content{
+    font-family: baumans;
+}
+
+.date{
+    text-align:right;
+}
