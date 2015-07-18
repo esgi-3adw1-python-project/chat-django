@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'chat.views.home'),
     url(r'^connexion$', 'chat.views.connexion'),
+    url(r'^inscription$', 'chat.views.inscription'),
     url(r'^deconnexion$', 'chat.views.deconnexion'),
 ]
