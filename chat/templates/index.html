@@ -24,7 +24,7 @@
         </div>
         <div id="form">
            <form method="post" action="ajax.php">
-            <input type="text" name="pseudo" placeholder="Pseudo" id="pseudo">
+            <input type="text" name="pseudo" value="{{ user.username }}" id="pseudo" disabled>
             <textarea placeholder="Mon Message" name="message" id="message"></textarea>
             <input id="envoi" type="submit" name="submit" value="Envoyer">
             </form>
