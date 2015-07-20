@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Django Chat App - Connexion</title>
+    <style>
+        body{
+             background: url("../static/chat/img/abstract-backgrounds-colors-digital-art-gradient.jpg") no-repeat center center fixed;
+        }
+        div {
+            position: relative;
+            top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Se connecter</h1>
+    <div>
+        <h1>Connexionr</h1>
 
-    {% if error %}
-        <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
-    {% endif %}
+        {% if error %}
+            <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+        {% endif %}
 
-    {% if user.is_authenticated %}
-        <p>Vous êtes connecté, <strong>{{ user.username }}</strong> !</p>
-        <a href="/">Retournez au chat</a>
-    {% else %}
+        {% if user.is_authenticated %}
+            <p>Vous êtes connecté, <strong>{{ user.username }}</strong> !</p>
+            <a href="/">Retournez au chat</a>
+        {% else %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Se connecter" />
-    </form>
-    <p>Pas encore de compte ? <a href="inscription">Inscrivez-vous</a></p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Se connecter" />
+        </form>
+        <p>Pas encore de compte ? <a href="inscription">Inscrivez-vous</a></p>
 
-    {% endif %}
+        {% endif %}
+    </div>
 </body>
 </html>

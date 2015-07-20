@@ -1,29 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Django Chat App</title>
     <link type="text/css" rel="stylesheet" href="/static/chat/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-         window.onload = function() {
-
-            var message = sessionStorage.getItem("msg");
-            if (message !== null) $('#id_message').val(message);
-
-        }
-
-        window.onbeforeunload = function() {
-            sessionStorage.setItem("msg" , $('#id_message').val());
-        }
-
-        setInterval(function() {window.location.reload();}, 7000);
-
-    </script>
 </head>
 <body>
     <div id="top">
-        <h1>Hello World {{ user.username }} !</h1>
+        <h1>Hello {{ user.username }}</h1>
         <h2><button id="logout" onclick="location.href='deconnexion'">Déconnexion</button></h2>
     </div>
     <div id="chat">
@@ -45,6 +31,7 @@
                 <input id="envoi" type="submit" name="submit" value="Envoyer">
             </form>
         </div>
+        <div id="reload"> <a href="/"><button><i class="fa fa-refresh"></i></button></a></div>
     </div>
 </body>
 </html>

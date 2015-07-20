@@ -8,9 +8,5 @@ class Message(models.Model):
     date = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __str__(self):
-        """
-        Cette méthode que nous définirons dans tous les modèles
-        nous permettra de reconnaître facilement les différents objets que
-        nous traiterons plus tard et dans l'administration
-        """
-        return self.user
+
+        return self.content

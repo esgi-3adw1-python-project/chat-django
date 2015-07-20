@@ -22,7 +22,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(redirect_field_name=None)
 def home(request):
     request.user
-    last_messages = Message.objects.all()
+    last_messages = Message.objects.order_by('-date')
     if request.method == "POST":
         form = MessageForm(request.POST)
         if form.is_valid():
@@ -30,7 +30,7 @@ def home(request):
             msg = request.POST.get('message', '')
             message = Message.objects.create(user=pseudo, content=msg)
             if message:  # Si l'objet renvoyé n'est pas None
-                last_messages = Message.objects.all()
+                last_messages = Message.objects.order_by('-date')
             else:  # sinon une erreur sera affichée
                 error = True
     else:
