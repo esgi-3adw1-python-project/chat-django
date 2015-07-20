@@ -1,5 +1,7 @@
 from django import forms
 
+#  Creation du formulaire de connexion, inscription et du chat
+
 
 class ConnexionForm(forms.Form):
     username = forms.CharField(label="Nom d'utilisateur", max_length=32)

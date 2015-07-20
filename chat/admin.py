@@ -1,5 +1,7 @@
 from django.contrib import admin
 from chat.models import Message
 
-# Register your models here.
+# On affiche le modèle de Message dans la partie admin
+
+
 admin.site.register(Message)
