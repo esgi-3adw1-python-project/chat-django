@@ -72,11 +72,13 @@ def inscription(request):
         if form.is_valid():
             username = request.POST.get('username', '')  # On récupère le pseudo du formulaire
             password = request.POST.get('password', '')  # On récupère le password du formulaire
+            if User.objects.filter(username=username).count():  # Si le pseudo existe déjà, erreur
+                error = True
+                return render(request, 'inscription.html', locals())
             user = User.objects.create_user(username, None, password)  # On inscrit le user
             if user:  # Si l'objet renvoyé n'est pas None
                 user = authenticate(username=username, password=password)  # On récupère l'objet du user
                 login(request, user)  # On connecte le user
-
                 return redirect(reverse(home))  # Redirection vers l'index
             else:  # Sinon une erreur sera affichée
                 error = True
