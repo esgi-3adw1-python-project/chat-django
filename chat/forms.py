@@ -12,7 +12,7 @@ class InscriptionForm(forms.Form):
 
 
 class MessageForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
+    message = forms.CharField(widget=forms.Textarea, label="", max_length=255)
 
 
 

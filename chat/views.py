@@ -11,6 +11,7 @@ from django.shortcuts import redirect
 
 from chat.forms import ConnexionForm
 from chat.forms import InscriptionForm
+from chat.forms import MessageForm
 
 from chat.models import Message
 
@@ -22,6 +23,18 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     request.user
     last_messages = Message.objects.all()
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            pseudo = request.user.username
+            msg = request.POST.get('message', '')
+            message = Message.objects.create(user=pseudo, content=msg)
+            if message:  # Si l'objet renvoyé n'est pas None
+                last_messages = Message.objects.all()
+            else:  # sinon une erreur sera affichée
+                error = True
+    else:
+        form = MessageForm()
     return render(request, 'index.html', locals())
 
 

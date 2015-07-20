@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Django Chat App</title>
     <link type="text/css" rel="stylesheet" href="/static/chat/css/style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+         window.onload = function() {
+
+            var message = sessionStorage.getItem("msg");
+            if (message !== null) $('#id_message').val(message);
+
+        }
+
+        window.onbeforeunload = function() {
+            sessionStorage.setItem("msg" , $('#id_message').val());
+        }
+
+        setInterval(function() {window.location.reload();}, 7000);
+
+    </script>
 </head>
 <body>
     <div id="top">
@@ -23,10 +39,10 @@
             {% endfor %}
         </div>
         <div id="form">
-           <form method="post" action="ajax.php">
-            <input type="text" name="pseudo" value="{{ user.username }}" id="pseudo" disabled>
-            <textarea placeholder="Mon Message" name="message" id="message"></textarea>
-            <input id="envoi" type="submit" name="submit" value="Envoyer">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input id="envoi" type="submit" name="submit" value="Envoyer">
             </form>
         </div>
     </div>
